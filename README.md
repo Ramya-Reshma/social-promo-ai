@@ -1,38 +1,20 @@
 # Social Promo AI 🚀
 
-An AI-powered social media promotion engine that helps businesses and personal brands generate a one-month content calendar with ready-to-publish posts.
+An AI-powered Social Media Promotion Engine that helps businesses and personal brands
+create a one-month content calendar with AI-generated captions and images.
 
-## 🔍 Problem
-Small businesses and creators struggle with:
-- Content planning
-- Consistency
-- Design & caption writing
-- Platform-specific optimization
+## Features (MVP)
+- Business type & target audience input
+- Brand tone, logo & brand color support
+- 30-day social media content calendar
+- AI-written captions
+- AI-generated post images
+- Platform-optimized posts (Instagram, LinkedIn, TikTok)
 
-## 💡 Solution
-Social Promo AI automates social media planning by generating:
-- 30-day content calendar
-- Platform-optimized captions
-- AI-generated images
-- Ready-to-post content
-
-## 🛠 Tech Stack
-- Backend: FastAPI (Python)
+## Tech Stack
 - Frontend: HTML, CSS, JavaScript
-- AI: Large Language Models (future integration)
+- Backend: Python (FastAPI – planned)
+- AI: LLM-based content generation (planned)
 
-## 📦 MVP Features
-- Business input (type, audience, tone)
-- Instagram / LinkedIn content generation
-- Caption + hashtag generation
-- Image generation (planned)
-
-## 👥 Team
-- 3 Members (Hackathon Team)
-
-## 🎯 Hackathon
-Envision 2026 (SSN – IEEE)  
-Duration: 24 Hours
-
----
-Built for rapid MVP development and demo-ready presentation.
+## Status
+🚧 MVP under active development
