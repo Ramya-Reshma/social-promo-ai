@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Envision Social Promo AI</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div>
+        <h1>Envision Social Promo AI</h1>
+        <p>Build a 30-day, brand-ready social media promotion engine.</p>
+      </div>
+      <button class="btn-secondary" id="resetAppBtn">Reset</button>
+    </header>
+
+    <main class="app-main">
+      <section class="panel panel-config">
+        <h2>Campaign Setup</h2>
+        <form id="campaignForm" class="form-grid">
+          <div class="form-field">
+            <label for="brandName">Brand / Business Name</label>
+            <input id="brandName" type="text" placeholder="e.g. Envision Studio" required />
+          </div>
+
+          <div class="form-field">
+            <label for="brandVoice">Brand Voice</label>
+            <select id="brandVoice">
+              <option value="professional">Professional</option>
+              <option value="playful">Playful</option>
+              <option value="bold">Bold</option>
+              <option value="minimal">Minimal</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="goal">Primary Campaign Goal</label>
+            <select id="goal">
+              <option value="awareness">Brand awareness</option>
+              <option value="engagement">Engagement</option>
+              <option value="leads">Lead generation</option>
+              <option value="sales">Sales / conversions</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="niche">Niche / Audience</label>
+            <input id="niche" type="text" placeholder="e.g. solo creators, SaaS founders" />
+          </div>
+
+          <div class="form-field">
+            <label for="platforms">Platforms</label>
+            <div class="pill-row" id="platforms">
+              <label class="pill"><input type="checkbox" value="instagram" checked />Instagram</label>
+              <label class="pill"><input type="checkbox" value="tiktok" />TikTok</label>
+              <label class="pill"><input type="checkbox" value="youtube" />YouTube</label>
+              <label class="pill"><input type="checkbox" value="linkedin" />LinkedIn</label>
+            </div>
+          </div>
+
+          <div class="form-field full-width">
+            <label for="keywords">Key Offers / Topics</label>
+            <textarea id="keywords" rows="2" placeholder="List products, services, or angles you want the AI to promote"></textarea>
+          </div>
+
+          <div class="form-actions full-width">
+            <button type="submit" class="btn-primary" id="generateCalendarBtn">
+              Generate 30-Day Calendar
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel panel-output">
+        <div class="panel-tabs">
+          <button class="tab active" data-tab="calendar">Content Calendar</button>
+          <button class="tab" data-tab="media">AI Images & Videos</button>
+          <button class="tab" data-tab="editing">Video Auto-Editing</button>
+        </div>
+
+        <div class="panel-body">
+          <div class="tab-panel active" id="tab-calendar">
+            <div class="panel-header-row">
+              <h2>30-Day Content Calendar</h2>
+              <button class="btn-ghost" id="exportCalendarBtn">Export as JSON</button>
+            </div>
+            <p class="panel-subtitle">
+              Once generated, each card represents a day with platform-ready copy and asset prompts.
+            </p>
+            <div id="calendarGrid" class="calendar-grid empty-state">
+              <div class="empty">
+                <h3>No calendar yet</h3>
+                <p>Configure your campaign on the left and click <strong>Generate 30-Day Calendar</strong>.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-media">
+            <div class="panel-header-row">
+              <h2>AI Images & Videos</h2>
+              <button class="btn-ghost" id="generateMediaBtn">Generate Media for Calendar</button>
+            </div>
+            <p class="panel-subtitle">
+              For each post, the AI will propose image/video concepts and thumbnails based on your brand.
+            </p>
+            <div id="mediaGrid" class="media-grid empty-state">
+              <div class="empty">
+                <h3>No media concepts yet</h3>
+                <p>Generate the calendar first, then click <strong>Generate Media for Calendar</strong>.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-editing">
+            <div class="panel-header-row">
+              <h2>Video Auto-Editing</h2>
+              <button class="btn-ghost" id="uploadVideoBtn">Upload Raw Video</button>
+            </div>
+            <p class="panel-subtitle">
+              Upload raw footage and let the engine cut, caption, and brand into platform-ready reels.
+            </p>
+
+            <div class="upload-zone" id="uploadZone">
+              <input type="file" id="videoInput" accept="video/*" hidden />
+              <p>Drop video files here or click to browse.</p>
+              <span class="upload-hint">Supported: mp4, mov, webm (demo only, not uploading yet)</span>
+            </div>
+
+            <div id="editJobs" class="edit-jobs">
+              <div class="empty">
+                <h3>No editing jobs yet</h3>
+                <p>Upload or drop a video file to create a new auto-editing job.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="app-footer">
+      <span>Prototype UI &middot; Connect this to your FastAPI backend at `/generate` or similar endpoints.</span>
+      <span id="statusBadge" class="status-badge">Idle</span>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
